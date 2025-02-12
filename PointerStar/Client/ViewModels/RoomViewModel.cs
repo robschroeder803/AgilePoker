@@ -47,7 +47,7 @@ public partial class RoomViewModel : ViewModelBase
     private bool _previewVotes = true;
 
     [ObservableProperty]
-    private bool _autoShowVotes;
+    private bool _autoShowVotes = false;
 
     [ObservableProperty]
     private Guid? _selectedRoleId;
