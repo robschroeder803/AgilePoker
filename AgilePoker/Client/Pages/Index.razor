@@ -8,6 +8,45 @@
     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="NavigateToRoom">Create Room</MudButton>
 </MudStack>
 
+<MudItem xs="12">
+	<MudCard>
+		<MudCardHeader>
+			<CardHeaderContent>
+				<MudText Typo="Typo.h5">Key steps in Agile pointing poker</MudText>
+			</CardHeaderContent>
+		</MudCardHeader>
+		<MudCardContent>
+			<MudText Typo="Typo.h6">Present the user story</MudText>
+			<MudText Typo="Typo.body1">The product owner or facilitator reads a user story aloud, providing clear context and details about the work required.</MudText>
+			<MudText Typo="Typo.h6">Discussion and clarification</MudText>
+			<MudText Typo="Typo.body1">Team members ask questions to clarify any uncertainties about the user story.</MudText>
+			<MudText Typo="Typo.h6">Individual estimation</MudText>
+			<MudText Typo="Typo.body1">Each person selects a card representing their estimated effort for the user story.</MudText>
+			<MudText Typo="Typo.h6">Reveal Votes</MudText>
+			<MudText Typo="Typo.body1">Once voting has concluded, the facilitator will reveal the cards</MudText>
+			<MudText Typo="Typo.h6">Discuss discrepancies</MudText>
+			<MudText Typo="Typo.body1">If there are significant differences in estimates, team members with high or low estimates explain their reasoning and discuss potential factors influencing their decision.</MudText>
+			<MudText Typo="Typo.h6">Iterate until consensus</MudText>
+			<MudText Typo="Typo.body1">Repeat the process of discussing, estimating, and revealing cards until the team reaches a consensus on the story point value.</MudText>
+		</MudCardContent>
+	</MudCard>
+
+	<MudCard>
+		<MudCardHeader>
+			<CardHeaderContent>
+				<MudText Typo="Typo.h5">Important points to remember</MudText>
+			</CardHeaderContent>
+		</MudCardHeader>
+		<MudCardContent>
+			<MudText Typo="Typo.h6">Focus on relative effort</MudText>
+			<MudText Typo="Typo.body1">Story points are not meant to represent exact time, but rather a relative comparison of complexity between different user stories.</MudText>
+			<MudText Typo="Typo.h6">Transparency and communication</MudText>
+			<MudText Typo="Typo.body1">Openly discussing rationale behind estimates is crucial for reaching consensus.</MudText>
+		</MudCardContent>
+	</MudCard>
+</MudItem>
+
+
 @code {
     private async Task NavigateToRoom()
     {

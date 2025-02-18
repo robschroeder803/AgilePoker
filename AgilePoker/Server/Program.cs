@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.WebHost.UseIIS();
 
 //TODO: Make these configurable settings
 builder.Services.AddSignalR(hubOptions => hubOptions.EnableDetailedErrors = true)
