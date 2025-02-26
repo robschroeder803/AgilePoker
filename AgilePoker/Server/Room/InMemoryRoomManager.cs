@@ -1,4 +1,6 @@
-﻿using AgilePoker.Shared;
+﻿using System.Data;
+using AgilePoker.Shared;
+using ILogger = AgilePoker.Shared.ILogger;
 
 namespace AgilePoker.Server.Room;
 public class InMemoryRoomManager : IRoomManager
@@ -7,6 +9,8 @@ public class InMemoryRoomManager : IRoomManager
     private ConcurrentDictionary<string, RoomState> Rooms { get; } = new();
     private ConcurrentDictionary<string, string> ConnectionsToRoom { get; } = new();
     private ConcurrentDictionary<string, User> ConnectionsToUser { get; } = new();
+    private ILogger textLogger = new TextLogger();
+    private ILogger sqlLogger = new SqlLogger();
 
     public Task<RoomState> AddUserToRoomAsync(string roomId, User user, string connectionId)
     {
@@ -31,6 +35,9 @@ public class InMemoryRoomManager : IRoomManager
                         .Append(user).ToArray()
                 };
             });
+            textLogger.Log(Enums.LogLevel.Information, $"User {user.Name} joined room {roomId} as a {user.Role.Name}");
+            sqlLogger.Log(Enums.LogLevel.Information, $"User {user.Name} joined room {roomId} as a {user.Role.Name}");
+
             return Task.FromResult(rv);
         });
 
@@ -183,7 +190,6 @@ public class InMemoryRoomManager : IRoomManager
         });
     }
 
-
     private Task<RoomState?> WithConnection(string connectionId, Func<RoomState, User, RoomState?> updateRoom)
     {
         if (ConnectionsToRoom.TryGetValue(connectionId, out string? roomId) &&
@@ -249,5 +255,4 @@ public class InMemoryRoomManager : IRoomManager
         }
         return false;
     }
-
 }
